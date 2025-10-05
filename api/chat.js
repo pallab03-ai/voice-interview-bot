@@ -1,5 +1,6 @@
 // Vercel Serverless Function for Chat API
-// This handles the LLM integration with NVIDIA NIM API
+// Handles LLM integration with NVIDIA NIM API
+// Updated: 2025-10-05
 
 import { personalInfo } from '../src/utils/personalInfo.js';
 
