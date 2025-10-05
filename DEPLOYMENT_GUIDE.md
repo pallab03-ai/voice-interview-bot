@@ -1,6 +1,7 @@
 # Vercel Deployment Guide - Step by Step 🚀
 
 ## Prerequisites Checklist
+
 - [x] Application tested locally and working
 - [ ] GitHub account (free)
 - [ ] Vercel account (free)
@@ -12,6 +13,7 @@
 ## Step 1: Prepare Your Code for Deployment
 
 ### A. Check Your Files
+
 Make sure you have these important files:
 
 ```
@@ -25,7 +27,9 @@ voice-interview-bot/
 ```
 
 ### B. Verify package.json has build script
+
 Open `package.json` and verify:
+
 ```json
 {
   "scripts": {
@@ -42,22 +46,26 @@ Open `package.json` and verify:
 ## Step 2: Initialize Git Repository (If Not Already Done)
 
 ### Check if Git is initialized:
+
 ```powershell
 cd c:\Users\PALLAB\my_self_bot\voice-interview-bot
 git status
 ```
 
 ### If you see "not a git repository", initialize Git:
+
 ```powershell
 git init
 ```
 
 ### Add all files:
+
 ```powershell
 git add .
 ```
 
 ### Commit your code:
+
 ```powershell
 git commit -m "Initial commit - Voice Interview Bot ready for deployment"
 ```
@@ -69,14 +77,17 @@ git commit -m "Initial commit - Voice Interview Bot ready for deployment"
 ### Option A: Using GitHub Website (Recommended)
 
 1. **Go to GitHub:**
+
    - Open https://github.com
    - Log in to your account
 
 2. **Create New Repository:**
+
    - Click the **"+"** icon (top right)
    - Select **"New repository"**
 
 3. **Repository Settings:**
+
    - **Repository name:** `voice-interview-bot`
    - **Description:** "AI Voice Interview Bot for 100x.inc application"
    - **Visibility:** Public (or Private, your choice)
@@ -88,6 +99,7 @@ git commit -m "Initial commit - Voice Interview Bot ready for deployment"
    - Copy this URL
 
 ### Option B: Using GitHub CLI (Alternative)
+
 ```powershell
 gh repo create voice-interview-bot --public --source=. --remote=origin
 ```
@@ -97,18 +109,22 @@ gh repo create voice-interview-bot --public --source=. --remote=origin
 ## Step 4: Push Code to GitHub
 
 ### Add GitHub as remote:
+
 ```powershell
 git remote add origin https://github.com/YOUR_USERNAME/voice-interview-bot.git
 ```
-*Replace YOUR_USERNAME with your actual GitHub username*
+
+_Replace YOUR_USERNAME with your actual GitHub username_
 
 ### Push your code:
+
 ```powershell
 git branch -M main
 git push -u origin main
 ```
 
 ### If prompted for credentials:
+
 - Username: Your GitHub username
 - Password: Use a **Personal Access Token** (not your password)
   - Get token: https://github.com/settings/tokens
@@ -123,6 +139,7 @@ git push -u origin main
 ### A. Sign Up/Login to Vercel
 
 1. **Go to Vercel:**
+
    - Open https://vercel.com
    - Click **"Sign Up"** (or "Log In" if you have account)
 
@@ -134,10 +151,12 @@ git push -u origin main
 ### B. Import Your Project
 
 1. **After login, you'll see Vercel Dashboard**
+
    - Click **"Add New..."** button (top right)
    - Select **"Project"**
 
 2. **Import Git Repository:**
+
    - You should see your GitHub repositories
    - Find **"voice-interview-bot"**
    - Click **"Import"**
@@ -145,39 +164,50 @@ git push -u origin main
 3. **Configure Project:**
 
    **Project Name:**
+
    ```
    voice-interview-bot
    ```
 
    **Framework Preset:**
+
    ```
    Create React App
    ```
-   *(Should auto-detect)*
+
+   _(Should auto-detect)_
 
    **Root Directory:**
+
    ```
    ./
    ```
-   *(Leave as default)*
+
+   _(Leave as default)_
 
    **Build Command:**
+
    ```
    npm run build
    ```
-   *(Should be pre-filled)*
+
+   _(Should be pre-filled)_
 
    **Output Directory:**
+
    ```
    build
    ```
-   *(Should be pre-filled)*
+
+   _(Should be pre-filled)_
 
    **Install Command:**
+
    ```
    npm install
    ```
-   *(Should be pre-filled)*
+
+   _(Should be pre-filled)_
 
 ### C. Add Environment Variable
 
@@ -186,8 +216,9 @@ git push -u origin main
 1. **Click "Environment Variables" section**
 
 2. **Add Variable:**
+
    - **Name:** `NVIDIA_API_KEY`
-   - **Value:** `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`
+   - **Value:** `YOUR_NVIDIA_API_KEY_HERE` (Get from https://build.nvidia.com/)
    - **Environment:** Select ALL (Production, Preview, Development)
 
 3. **Click "Add"**
@@ -205,6 +236,7 @@ git push -u origin main
 ### A. Check Build Status
 
 **During Build, you'll see:**
+
 ```
 ✓ Installing dependencies...
 ✓ Building application...
@@ -214,6 +246,7 @@ git push -u origin main
 ```
 
 **If successful:**
+
 - ✅ You'll see: "Congratulations! Your project has been deployed"
 - ✅ You'll get a URL like: `https://voice-interview-bot-abc123.vercel.app`
 
@@ -225,6 +258,7 @@ git push -u origin main
 ### C. Test Production App
 
 **Quick Tests:**
+
 1. ✅ Page loads
 2. ✅ Select English
 3. ✅ Type "Who are you?" and press Enter
@@ -238,11 +272,13 @@ git push -u origin main
 ## Step 7: Get Your Production URL
 
 ### Your app will be live at:
+
 ```
 https://voice-interview-bot-[random-id].vercel.app
 ```
 
 ### Custom Domain (Optional):
+
 1. Go to Project Settings → Domains
 2. Add your custom domain
 3. Follow DNS configuration steps
@@ -252,9 +288,11 @@ https://voice-interview-bot-[random-id].vercel.app
 ## Troubleshooting Common Issues
 
 ### Issue 1: Build Fails
+
 **Error:** "Build failed with exit code 1"
 
 **Solution:**
+
 ```powershell
 # Test build locally first
 npm run build
@@ -264,19 +302,23 @@ npm run build
 ```
 
 ### Issue 2: API Not Working
+
 **Error:** "Failed to get response" or 500 errors
 
 **Solutions:**
+
 - ✅ Check Environment Variables are set
 - ✅ Verify `NVIDIA_API_KEY` is correct
 - ✅ Check `api/chat.js` file exists
 - ✅ Verify `vercel.json` configuration
 
 ### Issue 3: 404 on Refresh
+
 **Error:** Page not found when refreshing
 
 **Solution:**
 Already handled by `vercel.json`:
+
 ```json
 {
   "rewrites": [{ "source": "/(.*)", "destination": "/" }]
@@ -284,9 +326,11 @@ Already handled by `vercel.json`:
 ```
 
 ### Issue 4: Voice Not Working
+
 **Error:** Voice doesn't speak in production
 
 **Solution:**
+
 - Browser needs HTTPS (Vercel provides this)
 - User must grant microphone permission
 - Voice API works in modern browsers only
@@ -300,6 +344,7 @@ Already handled by `vercel.json`:
 1. **Save your changes locally**
 
 2. **Commit to Git:**
+
 ```powershell
 git add .
 git commit -m "Description of changes"
@@ -307,6 +352,7 @@ git push
 ```
 
 3. **Auto-Deploy:**
+
    - Vercel automatically detects the push
    - Builds and deploys new version
    - Usually takes 1-2 minutes
@@ -321,6 +367,7 @@ git push
 ## Quick Command Reference
 
 ### Initial Setup:
+
 ```powershell
 # Navigate to project
 cd c:\Users\PALLAB\my_self_bot\voice-interview-bot
@@ -343,6 +390,7 @@ git push -u origin main
 ```
 
 ### Future Updates:
+
 ```powershell
 # After making changes
 git add .
@@ -372,11 +420,13 @@ After successful deployment:
 ## Final Production URL Format
 
 Your bot will be accessible at:
+
 ```
 https://voice-interview-bot-[unique-id].vercel.app
 ```
 
 **Example:**
+
 ```
 https://voice-interview-bot-xyz789.vercel.app
 ```
@@ -407,6 +457,7 @@ https://vercel.com/docs
 https://vercel.com/support
 
 **Common Commands:**
+
 ```powershell
 # Check Git status
 git status
