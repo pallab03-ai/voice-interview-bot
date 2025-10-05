@@ -48,12 +48,11 @@ Third, the problem space is technically fascinating. Building AI agents that neg
   ],
 
   projects: [
-    "Plant Disease Detection System with Deep Learning",
-    "Custom Attention Mechanisms (Dual Path Attention)",
-    "AI-powered Web Applications",
-    "Voice Interview Bot (this project!)"
+    "Plant Disease Detection using CNN - Deep learning model for identifying crop diseases from leaf images",
+    "AI-Powered Quiz App - Interactive quiz application with AI-generated questions and real-time scoring",
+    "Voice Interview Assistant - Voice-enabled AI chatbot for interview preparation (this project!)"
   ],
 
-  latestProject: `My most recent project is this Voice Interview Bot I built for the 100x application. It's a web-based chatbot that answers interview questions about me using voice and text input. I built it using React for the frontend, Web Speech API for voice recognition and text-to-speech, and NVIDIA NIM API with a 120B parameter model for generating responses. The bot supports multiple languages including English, Hindi, and Bengali. I deployed it on Vercel as a serverless application. What excited me most was shipping a production-ready AI agent in under 48 hours - from concept to deployed URL. The system prompt engineering was crucial to get 95%+ accuracy on answering questions about my background, and I optimized it with few-shot examples and specific response length guidelines. This project demonstrates my ability to ship fast, iterate quickly, and build AI agents that actually work in production.`
+  latestProject: `My most recent project is this Voice Interview Assistant I built for the 100x application. It's a voice-enabled AI chatbot that answers interview questions about me using voice and text input. I built it using React for the frontend, Web Speech API for voice recognition and text-to-speech, and NVIDIA NIM API with GPT-OSS 120B model for generating responses. The bot supports multiple languages including English, Hindi, and Bengali, and includes conversation memory to maintain context throughout the interview. I deployed it on Vercel as a serverless application. What excited me most was shipping a production-ready AI agent in under 48 hours - from concept to deployed URL. The system prompt engineering was crucial to get 95%+ accuracy on answering questions about my background, and I optimized it with few-shot examples and specific response length guidelines. This project demonstrates my ability to ship fast, iterate quickly, and build AI agents that actually work in production.`
 };
 

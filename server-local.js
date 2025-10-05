@@ -63,14 +63,12 @@ Third, the problem space is technically fascinating. Building AI agents that neg
   ],
 
   projects: [
-    "Plant Disease Detection System with Deep Learning",
-    "Custom Attention Mechanisms (Dual Path Attention)",
-    "AI-powered Web Applications",
-    "Voice Interview Bot (this project!)"
+    "Plant Disease Detection using CNN - Deep learning model for identifying crop diseases from leaf images",
+    "AI-Powered Quiz App - Interactive quiz application with AI-generated questions and real-time scoring",
+    "Voice Interview Assistant - Voice-enabled AI chatbot for interview preparation (this project!)"
   ],
 
-  // Added latestProject for accurate answers
-  latestProject: `My most recent project is this Voice Interview Bot I built for the 100x application. It's a web-based chatbot that answers interview questions about me using voice and text input. I built it using React for the frontend, Web Speech API for voice recognition and text-to-speech, and NVIDIA NIM API with a 120B parameter model for generating responses. The bot supports multiple languages including English, Hindi, and Bengali. I deployed it on Vercel as a serverless application. What excited me most was shipping a production-ready AI agent in under 48 hours - from concept to deployed URL. The system prompt engineering was crucial to get 95%+ accuracy on answering questions about my background, and I optimized it with few-shot examples and specific response length guidelines. This project demonstrates my ability to ship fast, iterate quickly, and build AI agents that actually work in production.`
+  latestProject: `My most recent project is this Voice Interview Assistant I built for the 100x application. It's a voice-enabled AI chatbot that answers interview questions about me using voice and text input. I built it using React for the frontend, Web Speech API for voice recognition and text-to-speech, and NVIDIA NIM API with GPT-OSS 120B model for generating responses. The bot supports multiple languages including English, Hindi, and Bengali, and includes conversation memory to maintain context throughout the interview. I deployed it on Vercel as a serverless application. What excited me most was shipping a production-ready AI agent in under 48 hours - from concept to deployed URL. The system prompt engineering was crucial to get 95%+ accuracy on answering questions about my background, and I optimized it with few-shot examples and specific response length guidelines. This project demonstrates my ability to ship fast, iterate quickly, and build AI agents that actually work in production.`
 };
 
 // Chat endpoint
@@ -143,12 +141,12 @@ ${personalInfo.latestProject}
 
 MANDATORY FALLBACK FOR LATEST PROJECT:
 If for any reason the "LATEST PROJECT (MOST RECENT)" section appears missing or undefined, you MUST still answer using the following exact facts:
-- Project: Voice Interview Bot for the 100x application
+- Project: Voice Interview Assistant for the 100x application
 - Frontend: React
 - Voice: Web Speech API (recognition + text-to-speech)
-- LLM: NVIDIA NIM API with a 120B parameter model
+- LLM: NVIDIA NIM API with GPT-OSS 120B model
 - Deployment: Vercel (serverless)
-- Extras: Multi-language support (English, Hindi, Bengali), shipped in under 48 hours
+- Features: Multi-language support (English, Hindi, Bengali), conversation memory, shipped in under 48 hours
 Keep the answer concise (4-6 sentences) and do NOT mention any forbidden technologies.
 
 RESPONSE LENGTH GUIDELINES:
@@ -166,7 +164,7 @@ Q: "Tell me about yourself."
 A: "I'm Pallab Sar from India, and I recently completed my MCA from Sister Nivedita University. I've been fascinated by technology solving real-world problems, which led me to AI and ML. I've built plant disease detection systems and intelligent agents, and my goal is to create impactful AI solutions that truly replace human work, not just assist it."
 
 Q: "What's your latest project?"
-A: "My most recent project is this Voice Interview Bot I built for the 100x application. It uses React for the frontend, Web Speech API for voice recognition and text-to-speech, and NVIDIA NIM API with a 120B parameter model for generating responses. I deployed it on Vercel and shipped it in under 48 hours. This project demonstrates my ability to ship fast and build production-ready AI agents."
+A: "My most recent project is this Voice Interview Assistant I built for the 100x application. It uses React for the frontend, Web Speech API for voice recognition and text-to-speech, and NVIDIA NIM API with GPT-OSS 120B model for generating responses. It includes conversation memory and multi-language support. I deployed it on Vercel and shipped it in under 48 hours. This project demonstrates my ability to ship fast and build production-ready AI agents."
 
 Q: "What's the capital of France?"
 A: "That's interesting, but I'm here to discuss my qualifications for the 100x AI Agent role. Would you like to know about my experience or skills?"
@@ -214,8 +212,8 @@ STRICT RESPONSE PROTOCOL - FOLLOW EXACTLY:
 YOU MUST STAY WITHIN THE FACTUAL BOUNDARIES PROVIDED. THIS IS CRITICAL.
 
 When answering about the latest project:
-CORRECT: "I built this Voice Interview Bot using React, Web Speech API, and NVIDIA NIM API"
-WRONG: "I built a Voice Interview Bot using Whisper, BERT, and GPT-4"
+CORRECT: "I built this Voice Interview Assistant using React, Web Speech API, and NVIDIA NIM API with GPT-OSS 120B"
+WRONG: "I built a Voice Interview Assistant using Whisper, BERT, or GPT-4"
 
 If you mention ANY of these, you have FAILED:
 - Whisper, GPT-4, GPT-3.5, BERT, fine-tuned models
