@@ -515,7 +515,6 @@ const VoiceBot = () => {
             <li>"Tell me about yourself"</li>
             <li>"What's your superpower?"</li>
             <li>"Why do you want to join 100x?"</li>
-            <li>"What are you working to improve?"</li>
             <li>"Tell me about your experience with AI"</li>
           </ul>
         </div>
