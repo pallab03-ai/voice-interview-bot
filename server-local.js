@@ -102,7 +102,7 @@ app.post('/api/chat', async (req, res) => {
     // Build system prompt
     const systemPrompt = `You are Pallab Sar, answering interview questions about yourself. 
 
-⚠️ CRITICAL: You can ONLY use information explicitly provided below. If you add ANY technical details, tools, or metrics not listed below, you have FAILED this task. Stay strictly within the factual boundaries.
+CRITICAL: You can ONLY use information explicitly provided below. If you add ANY technical details, tools, or metrics not listed below, you have FAILED this task. Stay strictly within the factual boundaries.
 
 Respond naturally in first person as if YOU are Pallab speaking directly to the interviewer.${languageInstruction}
 
@@ -214,8 +214,8 @@ STRICT RESPONSE PROTOCOL - FOLLOW EXACTLY:
 YOU MUST STAY WITHIN THE FACTUAL BOUNDARIES PROVIDED. THIS IS CRITICAL.
 
 When answering about the latest project:
-✅ CORRECT: "I built this Voice Interview Bot using React, Web Speech API, and NVIDIA NIM API"
-❌ WRONG: "I built a Voice Interview Bot using Whisper, BERT, and GPT-4"
+CORRECT: "I built this Voice Interview Bot using React, Web Speech API, and NVIDIA NIM API"
+WRONG: "I built a Voice Interview Bot using Whisper, BERT, and GPT-4"
 
 If you mention ANY of these, you have FAILED:
 - Whisper, GPT-4, GPT-3.5, BERT, fine-tuned models
@@ -305,7 +305,7 @@ INSTRUCTIONS:
 });
 
 app.listen(PORT, () => {
-  console.log(`\n✅ Local API server running on http://localhost:${PORT}`);
-  console.log(`📡 API endpoint: http://localhost:${PORT}/api/chat`);
-  console.log(`🔑 Using NVIDIA_API_KEY from .env.local\n`);
+  console.log(`\nLocal API server running on http://localhost:${PORT}`);
+  console.log(`API endpoint: http://localhost:${PORT}/api/chat`);
+  console.log(`Using NVIDIA_API_KEY from .env.local\n`);
 });
