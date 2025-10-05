@@ -16,12 +16,15 @@ Simply click the link, allow microphone access, and start asking interview quest
 ## 📸 Screenshots
 
 ### Main Interface
+
 ![Voice Bot Interface](Screenshot%202025-10-05%20193532.png)
 
 ### Voice Recognition Active
+
 ![Voice Recognition](Screenshot%202025-10-05%20193550.png)
 
 ### AI Response
+
 ![AI Response](Screenshot%202025-10-05%20193711.png)
 
 ## 📖 About
@@ -31,23 +34,25 @@ A voice-enabled AI chatbot that answers interview questions about me (Pallab Sar
 ### Key Features
 
 - 🎙️ **Voice Input/Output** - Natural conversation using Web Speech API
-- 🤖 **AI-Powered Responses** - NVIDIA NIM API (120B parameter model)
+- 🤖 **AI-Powered Responses** - NVIDIA NIM API (GPT-OSS 120B model)
 - 🌍 **Multi-Language Support** - English, Hindi, and Bengali
+- 💾 **Conversation Memory** - Maintains context throughout the conversation
+- 🔊 **Multiple Voice Options** - Choose from different voice types and languages
 - ⚡ **95%+ Accuracy** - Optimized system prompt with anti-hallucination safeguards
 - 🚀 **Production-Ready** - Deployed on Vercel with serverless architecture
 - 📱 **Mobile-Friendly** - Responsive design works on any device
 
 ## 🛠️ Tech Stack
 
-| Category | Technology |
-|----------|-----------|
-| **Frontend** | React 18, JavaScript |
-| **Voice I/O** | Web Speech API (Recognition & Synthesis) |
-| **AI Model** | NVIDIA NIM API (120B parameter LLM) |
-| **Styling** | CSS3, Responsive Design |
-| **Icons** | Lucide React |
-| **Deployment** | Vercel (Serverless Functions) |
-| **Version Control** | Git, GitHub |
+| Category            | Technology                               |
+| ------------------- | ---------------------------------------- |
+| **Frontend**        | React 18, JavaScript                     |
+| **Voice I/O**       | Web Speech API (Recognition & Synthesis) |
+| **AI Model**        | NVIDIA NIM API (GPT-OSS 120B)            |
+| **Styling**         | CSS3, Responsive Design                  |
+| **Icons**           | Lucide React                             |
+| **Deployment**      | Vercel (Serverless Functions)            |
+| **Version Control** | Git, GitHub                              |
 
 ## 🏗️ Architecture
 
@@ -72,7 +77,7 @@ A voice-enabled AI chatbot that answers interview questions about me (Pallab Sar
                    ▼
 ┌─────────────────────────────────────────────────┐
 │              NVIDIA NIM API                     │
-│         (120B Parameter LLM Model)              │
+│            (GPT-OSS 120B Model)                 │
 └─────────────────────────────────────────────────┘
 ```
 
@@ -81,17 +86,20 @@ A voice-enabled AI chatbot that answers interview questions about me (Pallab Sar
 ### Why These Technologies?
 
 **Web Speech API over Whisper:**
+
 - No backend processing needed for voice → text
 - Instant recognition (< 500ms latency)
 - Browser-native, no additional API costs
 - Perfect for web-based deployment
 
 **NVIDIA NIM over OpenAI:**
+
 - Access to open-source 120B parameter models
 - Cost-effective for production use
 - Demonstrates versatility with different AI providers
 
 **Vercel over AWS Lambda:**
+
 - Zero-config deployment
 - Automatic HTTPS and CDN
 - Perfect DX for React apps
@@ -191,19 +199,6 @@ voice-interview-bot/
 - How I push my boundaries
 - Common misconceptions about me
 
-## 🧪 Testing
-
-Run the test suite:
-
-```bash
-npm test
-```
-
-Test with sample questions:
-```bash
-npm run test:questions
-```
-
 ## 🔒 Security
 
 - ✅ API keys stored in environment variables (never in code)
@@ -229,12 +224,12 @@ npm run test:questions
 
 ## 🔮 Future Enhancements
 
-- [ ] Conversation history/context memory
 - [ ] Response streaming for faster perceived speed
 - [ ] Fallback to text input when voice unavailable
-- [ ] Multiple voice options
 - [ ] Response feedback system
 - [ ] Analytics dashboard
+- [ ] Export conversation transcripts
+- [ ] Custom voice training
 
 ## 🤝 Contributing
 
@@ -251,6 +246,7 @@ MIT License - Feel free to use this as a reference for your own projects!
 ## 👨‍💻 Author
 
 **Pallab Sar**
+
 - GitHub: [@pallab03-ai](https://github.com/pallab03-ai)
 - Portfolio: [https://voice-interview-bot.vercel.app/](https://voice-interview-bot.vercel.app/)
 
@@ -273,4 +269,4 @@ MIT License - Feel free to use this as a reference for your own projects!
 
 **Built with ❤️ and ⚡ speed for 100x.inc**
 
-*This project demonstrates my ability to ship production-ready AI agents fast while maintaining code quality and user experience.*
+_This project demonstrates my ability to ship production-ready AI agents fast while maintaining code quality and user experience._
