@@ -9,15 +9,18 @@ Your NVIDIA API key was accidentally committed to GitHub in documentation files.
 ## ✅ What We Fixed
 
 ### Files Updated:
+
 1. ✅ `QUICK_DEPLOY.md` - Replaced API key with placeholder
 2. ✅ `DEPLOYMENT_GUIDE.md` - Replaced API key with placeholder
 3. ✅ `.env.local` - Already in `.gitignore` (safe)
 
 ### API Key Removed From:
+
 - Documentation files (MD files)
 - Public GitHub repository
 
 ### API Key Still Safe In:
+
 - ✅ `.env.local` (gitignored, not pushed to GitHub)
 - ✅ Vercel Environment Variables (secure, not public)
 
@@ -30,20 +33,24 @@ Your NVIDIA API key was accidentally committed to GitHub in documentation files.
 **If the key was public for any time, rotate it:**
 
 1. **Go to NVIDIA Build Portal:**
+
    - https://build.nvidia.com/
    - Login to your account
 
 2. **Revoke Old Key:**
+
    - Go to API Keys section
    - Find your current key
    - Click "Revoke" or "Delete"
 
 3. **Generate New Key:**
+
    - Click "Create New API Key"
    - Copy the new key
    - Save it securely
 
 4. **Update Vercel:**
+
    - Go to Vercel Dashboard
    - Project Settings → Environment Variables
    - Update `NVIDIA_API_KEY` with new value
@@ -59,10 +66,12 @@ Your NVIDIA API key was accidentally committed to GitHub in documentation files.
 **If you caught it quickly:**
 
 1. **Check NVIDIA Dashboard:**
+
    - Monitor API usage for unusual activity
    - Look for unexpected calls
 
 2. **Set Usage Limits:**
+
    - Configure rate limits if available
    - Set up billing alerts
 
@@ -77,21 +86,24 @@ Your NVIDIA API key was accidentally committed to GitHub in documentation files.
 ### ✅ DO:
 
 1. **Use Environment Variables:**
+
    ```
    .env.local (gitignored)
    Vercel Environment Variables
    ```
 
 2. **Never Hardcode Keys:**
+
    ```javascript
    // ❌ BAD
    const API_KEY = "nvapi-abc123...";
-   
+
    // ✅ GOOD
    const API_KEY = process.env.NVIDIA_API_KEY;
    ```
 
 3. **Check .gitignore:**
+
    ```
    .env
    .env.local
@@ -156,11 +168,13 @@ git show <commit-hash>
 1. **Rotate Key Immediately** (see Option 1 above)
 
 2. **Check for Unauthorized Usage:**
+
    - Review NVIDIA API dashboard
    - Look for unusual patterns
    - Check billing/usage stats
 
 3. **Update All Locations:**
+
    - Local `.env.local`
    - Vercel environment variables
    - Any other services using the key
@@ -177,12 +191,14 @@ git show <commit-hash>
 ### For Local Development:
 
 **File: `.env.local`**
+
 ```bash
 # Local environment variables (NEVER commit this file)
 NVIDIA_API_KEY=your_api_key_here
 ```
 
 **File: `.env.local.example`** (Safe to commit)
+
 ```bash
 # Example environment variables
 NVIDIA_API_KEY=your_nvidia_api_key_here
@@ -192,6 +208,7 @@ NVIDIA_API_KEY=your_nvidia_api_key_here
 
 ```markdown
 **Environment Variable:**
+
 - Name: `NVIDIA_API_KEY`
 - Value: Get from https://build.nvidia.com/
 - Set in Vercel: Project Settings → Environment Variables
@@ -200,6 +217,7 @@ NVIDIA_API_KEY=your_nvidia_api_key_here
 ### For Deployment:
 
 **Vercel Environment Variables:**
+
 - Always use the Environment Variables section
 - Never hardcode in vercel.json
 - Set for all environments (Production, Preview, Development)
@@ -209,12 +227,15 @@ NVIDIA_API_KEY=your_nvidia_api_key_here
 ## 🔗 Helpful Resources
 
 **NVIDIA API Key Management:**
+
 - https://build.nvidia.com/
 
 **Git Security:**
+
 - Remove sensitive data: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
 
 **Vercel Environment Variables:**
+
 - https://vercel.com/docs/concepts/projects/environment-variables
 
 ---
@@ -222,6 +243,7 @@ NVIDIA_API_KEY=your_nvidia_api_key_here
 ## ✅ Current Status
 
 **Security Fixes Applied:**
+
 - ✅ API key removed from QUICK_DEPLOY.md
 - ✅ API key removed from DEPLOYMENT_GUIDE.md
 - ✅ Placeholders added with instructions
@@ -229,6 +251,7 @@ NVIDIA_API_KEY=your_nvidia_api_key_here
 - ✅ Ready to commit and push
 
 **Next Steps:**
+
 1. Commit these security fixes
 2. Push to GitHub
 3. Consider rotating your API key
@@ -239,20 +262,24 @@ NVIDIA_API_KEY=your_nvidia_api_key_here
 ## 🎯 Summary
 
 **What Happened:**
+
 - API key was in documentation files
 - Files were committed to public GitHub
 
 **What We Did:**
+
 - Removed key from all documentation
 - Replaced with secure placeholders
 - Added this security guide
 
 **What You Should Do:**
+
 - ✅ Commit and push the fixes (in progress)
 - ⚠️ Consider rotating the API key
 - 🔒 Follow best practices going forward
 
 **Your app is still secure because:**
+
 - The key in Vercel is separate and secure
 - `.env.local` was never pushed (gitignored)
 - Documentation now has placeholders only

@@ -9,7 +9,7 @@ function App() {
         <div className="header-content">
           <h1>Pallab Sar - Voice Interview Bot</h1>
           <p className="subtitle">100x.inc Application</p>
-          <p className="tagline">🎤 Ask me anything about my background, skills, and experience</p>
+          <p className="tagline">Ask me anything about my background, skills, and experience</p>
         </div>
       </header>
       
@@ -18,7 +18,7 @@ function App() {
       </main>
       
       <footer className="app-footer">
-        <p>Built with React, Web Speech API, and Groq AI</p>
+        <p>Built with React, Web Speech API, and gpt-oss-120b</p>
         <p className="challenge-badge">⚡ 48-hour build challenge</p>
       </footer>
     </div>
