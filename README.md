@@ -156,7 +156,118 @@ vercel
 vercel env add NVIDIA_API_KEY
 ```
 
-## 📂 Project Structure
+## � Using Different AI Models (GPT, Claude, etc.)
+
+Want to use OpenAI GPT or Anthropic Claude instead of NVIDIA NIM? Here's how:
+
+### Option 1: OpenAI GPT-4
+
+1. **Get API Key:** Sign up at [https://platform.openai.com/](https://platform.openai.com/)
+
+2. **Update `.env.local`:**
+```bash
+OPENAI_API_KEY=sk-your-openai-key-here
+```
+
+3. **Modify `api/chat.js`:**
+```javascript
+// Replace NVIDIA NIM API call with OpenAI
+const response = await fetch('https://api.openai.com/v1/chat/completions', {
+  method: 'POST',
+  headers: {
+    'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    model: 'gpt-4',  // or 'gpt-3.5-turbo' for faster/cheaper
+    messages: [
+      { role: 'system', content: systemPrompt },
+      { role: 'user', content: question }
+    ],
+    temperature: 0.7,
+    max_tokens: 500
+  })
+});
+
+const data = await response.json();
+const answer = data.choices[0].message.content;
+```
+
+### Option 2: Anthropic Claude
+
+1. **Get API Key:** Sign up at [https://console.anthropic.com/](https://console.anthropic.com/)
+
+2. **Update `.env.local`:**
+```bash
+ANTHROPIC_API_KEY=sk-ant-your-anthropic-key-here
+```
+
+3. **Modify `api/chat.js`:**
+```javascript
+// Replace NVIDIA NIM API call with Anthropic
+const response = await fetch('https://api.anthropic.com/v1/messages', {
+  method: 'POST',
+  headers: {
+    'x-api-key': process.env.ANTHROPIC_API_KEY,
+    'anthropic-version': '2023-06-01',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    model: 'claude-3-5-sonnet-20241022',  // or 'claude-3-opus-20240229'
+    max_tokens: 500,
+    messages: [
+      { role: 'user', content: `${systemPrompt}\n\nQuestion: ${question}` }
+    ]
+  })
+});
+
+const data = await response.json();
+const answer = data.content[0].text;
+```
+
+### Option 3: Google Gemini
+
+1. **Get API Key:** Sign up at [https://makersuite.google.com/](https://makersuite.google.com/)
+
+2. **Update `.env.local`:**
+```bash
+GOOGLE_API_KEY=your-google-gemini-key-here
+```
+
+3. **Modify `api/chat.js`:**
+```javascript
+// Replace NVIDIA NIM API call with Google Gemini
+const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${process.env.GOOGLE_API_KEY}`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    contents: [{
+      parts: [{
+        text: `${systemPrompt}\n\nQuestion: ${question}`
+      }]
+    }]
+  })
+});
+
+const data = await response.json();
+const answer = data.candidates[0].content.parts[0].text;
+```
+
+### Cost Comparison
+
+| Provider | Model | Cost (per 1M tokens) | Speed |
+|----------|-------|---------------------|-------|
+| **NVIDIA NIM** | GPT-OSS 120B | Free (limited) | Fast ⚡ |
+| **OpenAI** | GPT-4 Turbo | $10 (input) / $30 (output) | Medium |
+| **OpenAI** | GPT-3.5 Turbo | $0.50 / $1.50 | Very Fast ⚡⚡ |
+| **Anthropic** | Claude 3.5 Sonnet | $3 / $15 | Fast ⚡ |
+| **Google** | Gemini Pro | Free (limited) / Paid | Fast ⚡ |
+
+**Note:** After changing the AI provider, redeploy to Vercel and update the environment variables in Vercel dashboard (Settings → Environment Variables).
+
+## �📂 Project Structure
 
 ```
 voice-interview-bot/
