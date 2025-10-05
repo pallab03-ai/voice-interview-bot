@@ -359,7 +359,6 @@ MIT License - Feel free to use this as a reference for your own projects!
 **Pallab Sar**
 
 - GitHub: [@pallab03-ai](https://github.com/pallab03-ai)
-- Portfolio: [https://voice-interview-bot.vercel.app/](https://voice-interview-bot.vercel.app/)
 
 ## 🙏 Acknowledgments
 
