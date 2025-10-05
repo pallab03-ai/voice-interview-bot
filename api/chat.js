@@ -4,17 +4,14 @@
 import { personalInfo } from '../src/utils/personalInfo.js';
 
 export default async function handler(req, res) {
-  // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // Handle preflight request
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
 
-  // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -22,12 +19,10 @@ export default async function handler(req, res) {
   try {
     const { question, language, conversationHistory = [] } = req.body;
 
-    // Validate input
     if (!question || typeof question !== 'string') {
       return res.status(400).json({ error: 'Question is required' });
     }
 
-    // Check for NVIDIA NIM API key
     const apiKey = process.env.NVIDIA_API_KEY;
     if (!apiKey) {
       return res.status(500).json({ 
@@ -35,7 +30,6 @@ export default async function handler(req, res) {
       });
     }
 
-    // Determine language instruction
     let languageInstruction = '';
     if (language) {
       if (language.includes('Hindi') || language.includes('हिंदी')) {
@@ -190,11 +184,9 @@ INSTRUCTIONS:
 - If question has multiple parts: Address all parts briefly
 - Be specific and concrete with examples from the information above`;
 
-    // NVIDIA NIM API endpoint and model
     const apiUrl = 'https://integrate.api.nvidia.com/v1/chat/completions';
     const model = 'openai/gpt-oss-120b';
 
-    // Call NVIDIA NIM API
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
@@ -223,11 +215,9 @@ INSTRUCTIONS:
 
     const data = await response.json();
     
-    // Extract reasoning content if available (for reasoning models)
     const reasoning = data.choices[0]?.message?.reasoning_content;
     const answer = data.choices[0]?.message?.content || 'I apologize, but I could not generate a response.';
 
-    // Return successful response
     return res.status(200).json({
       answer,
       reasoning: reasoning || null,
