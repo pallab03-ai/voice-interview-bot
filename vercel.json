@@ -1,5 +1,4 @@
 {
-  "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "build",
   "devCommand": "npm start",
@@ -11,13 +10,6 @@
       "destination": "/api/:path*"
     }
   ],
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "nodejs18.x",
-      "memory": 1024,
-      "maxDuration": 10
-    }
-  },
   "headers": [
     {
       "source": "/api/(.*)",
